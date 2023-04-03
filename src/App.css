@@ -1,38 +1,34 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.land{
+  fill: #CCCCCC;
+  fill-opacity: 1;
+  stroke:white;
+  stroke-opacity: 1;
+  stroke-width:0.5;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .europeMap{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10rem;
+   
   }
-  to {
-    transform: rotate(360deg);
+  .europeMap svg{
+    width: 850px;
+    height: 700px;
   }
-}
+  .sehir-adi{
+    background: rgb(190, 157, 157);
+    border-radius: 8px;
+    position: absolute;
+    opacity: 0;
+    padding: 10px;
+    visibility: hidden;
+    color: rgb(8, 8, 8);
+  }
+  .aktif{
+    opacity: 1;
+    visibility: visible;
+  }
+  
