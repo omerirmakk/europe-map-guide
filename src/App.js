@@ -27,7 +27,7 @@ function App() {
         }
 
         countryName.innerHTML = this.getAttribute("title");
-        if (window.innerWidth < 600) {
+        if (window.innerWidth > 700) {
           setInterval(() => {
             window.location.reload();
           }, 6000);
@@ -36,7 +36,7 @@ function App() {
       console.log(window.innerWidth);
 
       europeMap[i].addEventListener("mouseleave", function () {
-        countryName.classList.remove("sehir-adi", "sehir-adi-fr", "aktif");
+        countryName.classList.remove("sehir-adi", "aktif");
         countryName.textContent = "";
       });
 

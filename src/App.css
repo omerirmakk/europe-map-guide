@@ -4,7 +4,8 @@
   fill-opacity: 1;
   stroke:white;
   stroke-opacity: 1;
-  stroke-width:0.5;
+  transition: ease-in-out 1s;
+  stroke-width:.7;
   }
   .europeMap{
     position: relative;
@@ -14,19 +15,24 @@
     bottom: 10rem;
    
   }
+  .land:hover{
+    fill: #614545;
+  }
   .europeMap svg{
     width: 850px;
     height: 700px;
   }
   .sehir-adi{
-    background: rgb(190, 157, 157);
+    background: rgb(192, 174, 174);
     border-radius: 8px;
     position: absolute;
     opacity: 0;
+    font-size: 14px;
     padding: 10px;
     visibility: hidden;
     color: rgb(8, 8, 8);
   }
+  
   .aktif{
     opacity: 1;
     visibility: visible;
