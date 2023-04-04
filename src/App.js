@@ -1,53 +1,51 @@
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./App.css";
-/*import { useNavigate } from "react-router-dom";*/
 
 function App() {
-  /*const navigate = useNavigate();*/
-
+  const navigate = useNavigate();
   useEffect(() => {
     let europeMap = document
       .getElementById("svg-europe")
       .getElementsByTagName("path");
     let countryName = document.getElementById("city-name");
 
-    return () => {
-      for (let i = 0; i < europeMap.length; i++) {
-        europeMap[i].addEventListener("mousemove", function (e) {
-          countryName.classList.add("sehir-adi", "aktif");
-          countryName.style.left = e.clientX + 2 + "px";
-          countryName.style.top = e.clientY + 150 + "px";
+    for (let i = 0; i < europeMap.length; i++) {
+      europeMap[i].addEventListener("mousemove", function (e) {
+        countryName.classList.add("sehir-adi", "aktif");
+        countryName.style.left = e.clientX + 2 + "px";
+        countryName.style.top = e.clientY + 150 + "px";
 
-          if (window.innerWidth < 900) {
-            countryName.style.top = e.clientY + 300 + "px";
-          }
-          if (window.innerWidth < 600) {
-            countryName.style.top = e.clientY + 450 + "px";
-            countryName.style.fontSize = "6px";
-            countryName.style.padding = "4px";
-          }
+        if (window.innerWidth < 900) {
+          countryName.style.top = e.clientY + 300 + "px";
+        }
+        if (window.innerWidth < 600) {
+          countryName.style.top = e.clientY + 450 + "px";
+          countryName.style.fontSize = "6px";
+          countryName.style.padding = "4px";
+        }
 
-          countryName.innerHTML = this.getAttribute("title");
-          if (window.innerWidth < 600) {
-            setInterval(() => {
-              window.location.reload();
-            }, 3000);
-          }
-        });
-        console.log(window.innerWidth);
+        countryName.innerHTML = this.getAttribute("title");
+        if (window.innerWidth < 600) {
+          setInterval(() => {
+            window.location.reload();
+          }, 6000);
+        }
+      });
+      console.log(window.innerWidth);
 
-        europeMap[i].addEventListener("mouseleave", function () {
-          countryName.classList.remove("sehir-adi", "sehir-adi-fr", "aktif");
-          countryName.textContent = "";
-        });
+      europeMap[i].addEventListener("mouseleave", function () {
+        countryName.classList.remove("sehir-adi", "sehir-adi-fr", "aktif");
+        countryName.textContent = "";
+      });
 
-        /*europeMap[i].addEventListener("click", function () {
-          navigate.push(`/${this.getAttribute("title")}`);
-        });*/
-      }
-    };
-  });
+      europeMap[i].addEventListener("click", function () {
+        navigate(`/countries/${this.getAttribute("title")}`);
+      });
+    }
+  }, [navigate]);
+
   return (
     <div className="europeMap">
       <svg
